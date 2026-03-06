@@ -227,17 +227,18 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 ---
 
 ## Screenshots
+<img width="1920" height="1080" alt="Screenshot (818)" src="https://github.com/user-attachments/assets/5d73bfd8-d58c-4b5f-9a6a-6cb6fb205d9e" />
+<img width="1920" height="1080" alt="Screenshot (819)" src="https://github.com/user-attachments/assets/95d86b8c-5625-4ca6-a493-dc58f41b9bea" />
+<img width="1920" height="1080" alt="Screenshot (820)" src="https://github.com/user-attachments/assets/9a1805bb-f6da-422a-9ef1-0c95bc0e8dcd" />
+<img width="1920" height="1080" alt="Screenshot (821)" src="https://github.com/user-attachments/assets/11dbed51-bd24-4d89-9da3-8130b425bbf1" />
+<img width="1920" height="1080" alt="Screenshot (822)" src="https://github.com/user-attachments/assets/77fdec63-a089-4b49-8af8-5a216b809573" />
+<img width="1920" height="1080" alt="Screenshot (823)" src="https://github.com/user-attachments/assets/7b721648-dc0c-4d87-b42f-522365632548" />
+<img width="1920" height="1080" alt="Screenshot (824)" src="https://github.com/user-attachments/assets/7a681e5a-c7a0-4380-a24b-3d7c0d5afa8d" />
 
-> Add screenshots of your app here.
->
-> ```
-> <img width="1920" height="1080" alt="Screenshot (818)" src="https://github.com/user-attachments/assets/0d7588d7-7e45-42f2-9083-d3800a9c19b2" />
 
-> <img width="1920" height="1080" alt="Screenshot (819)" src="https://github.com/user-attachments/assets/d1b92820-28f0-454d-b1df-b927d86b2ac7" />
 
-> <img width="1920" height="1080" alt="Screenshot (820)" src="https://github.com/user-attachments/assets/258e2b4c-3f1d-4650-b729-cfe634b78b79" />
 
-> ```
+
 
 ---
 
