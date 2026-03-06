@@ -231,9 +231,12 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 > Add screenshots of your app here.
 >
 > ```
-> ![Home Page](screenshots/home.png)
-> ![Listing Detail](screenshots/listing-show.png)
-> ![Profile Page](screenshots/profile.png)
+> <img width="1920" height="1080" alt="Screenshot (818)" src="https://github.com/user-attachments/assets/0d7588d7-7e45-42f2-9083-d3800a9c19b2" />
+
+> <img width="1920" height="1080" alt="Screenshot (819)" src="https://github.com/user-attachments/assets/d1b92820-28f0-454d-b1df-b927d86b2ac7" />
+
+> <img width="1920" height="1080" alt="Screenshot (820)" src="https://github.com/user-attachments/assets/258e2b4c-3f1d-4650-b729-cfe634b78b79" />
+
 > ```
 
 ---
@@ -250,11 +253,6 @@ Contributions are welcome! Here's how:
 
 ---
 
-## License
-
-This project is licensed under the **ISC License**.
-
----
 
 <p align="center">
   Built with ❤️ by <strong>Shubham</strong>
