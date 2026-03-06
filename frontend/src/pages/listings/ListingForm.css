@@ -1,0 +1,113 @@
+.lform-page {
+  padding: 40px 32px 80px;
+}
+.lform-page__back {
+  margin-bottom: 20px;
+}
+
+.lform-page__title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+.lform-page__sub {
+  font-size: 14.5px;
+  color: var(--ink-light);
+  font-weight: 300;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.lform-card {
+  background: var(--white);
+  border: 1px solid var(--dust);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-sm);
+}
+
+.lform-section {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--rust);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--dust);
+}
+
+.lform-filedrop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border: 2px dashed var(--dust);
+  border-radius: var(--radius-sm);
+  padding: 28px 20px;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+}
+.lform-filedrop:hover {
+  border-color: var(--rust);
+  background: rgba(192, 82, 42, 0.03);
+}
+.lform-filedrop__icon {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+.lform-filedrop__text {
+  font-size: 13.5px;
+  color: var(--ink-light);
+}
+.lform-filedrop__text strong {
+  color: var(--rust);
+}
+.lform-filedrop__hint {
+  font-size: 12px;
+  color: var(--ink-light);
+  opacity: 0.7;
+}
+
+.lform-preview {
+  position: relative;
+  margin-bottom: 20px;
+}
+.lform-preview img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--dust);
+  display: block;
+}
+.lform-preview__remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(26, 22, 18, 0.75);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: background var(--transition);
+}
+.lform-preview__remove:hover {
+  background: rgba(26, 22, 18, 0.9);
+}
+
+@media (max-width: 768px) {
+  .lform-page {
+    padding: 24px 16px 56px;
+  }
+  .lform-card {
+    padding: 24px 18px;
+  }
+}

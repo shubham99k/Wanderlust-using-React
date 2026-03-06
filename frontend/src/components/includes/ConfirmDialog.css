@@ -1,0 +1,9 @@
+.btn-delete-confirm {
+  background: var(--danger);
+  color: #fff;
+  border: none;
+}
+.btn-delete-confirm:hover {
+  background: #a02920;
+  transform: translateY(-1px);
+}

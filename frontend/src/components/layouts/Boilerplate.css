@@ -1,0 +1,9 @@
+.boilerplate {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.boilerplate__main {
+  flex: 1;
+}
