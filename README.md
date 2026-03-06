@@ -228,7 +228,6 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## Screenshots
 <img width="1920" height="1080" alt="Screenshot (818)" src="https://github.com/user-attachments/assets/5d73bfd8-d58c-4b5f-9a6a-6cb6fb205d9e" />
-<br/>
 <img width="1920" height="1080" alt="Screenshot (819)" src="https://github.com/user-attachments/assets/95d86b8c-5625-4ca6-a493-dc58f41b9bea" />
 <img width="1920" height="1080" alt="Screenshot (820)" src="https://github.com/user-attachments/assets/9a1805bb-f6da-422a-9ef1-0c95bc0e8dcd" />
 <img width="1920" height="1080" alt="Screenshot (821)" src="https://github.com/user-attachments/assets/11dbed51-bd24-4d89-9da3-8130b425bbf1" />
