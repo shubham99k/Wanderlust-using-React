@@ -255,15 +255,13 @@ export default function ListingShow({ listingId, onNavigate }) {
           <div>
             <div className="show-page__owner-label">Hosted by:</div>
             <div className="show-page__owner-name">
-            @{listing.owner.username}
+              @{listing.owner.username}
             </div>
           </div>
           <br />
           <div>
             <div className="show-page__owner-label">Contact Email:</div>
-            <div className="show-page__owner-name">
-            @{listing.owner.email}
-            </div>
+            <div className="show-page__owner-name">{listing.owner.email}</div>
           </div>
         </div>
       )}

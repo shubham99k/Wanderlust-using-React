@@ -34,6 +34,24 @@ module.exports.isOwner = async (req, res, next) => {
 
 module.exports.isValidObjectId = (id) => mongoose.Types.ObjectId.isValid(id);
 
+// Convert flat FormData keys like "listing[title]" into nested { listing: { title } }
+module.exports.parseFormData = (req, res, next) => {
+    if (req.is("multipart/form-data") && !req.body.listing) {
+        const nested = {};
+        for (const key of Object.keys(req.body)) {
+            const match = key.match(/^(\w+)\[(\w+)\]$/);
+            if (match) {
+                const [, outer, inner] = match;
+                if (!nested[outer]) nested[outer] = {};
+                nested[outer][inner] = req.body[key];
+            } else {
+                nested[key] = req.body[key];
+            }
+        }
+        req.body = nested;
+    }
+    next();
+};
 
 
 module.exports.validateListing = (req, res, next) => {
@@ -58,7 +76,7 @@ module.exports.isReviewAuthor = async (req, res, next) => {
     if (!review) {
         return res.status(404).json({ message: "Review not found!" });
     }
-    if (!review.author._id.equals(req.user._id)) {
+    if (!review.author.equals(req.user._id)) {
         return res.status(403).json({ message: "You are not the author of this review!" });
     }
     next();

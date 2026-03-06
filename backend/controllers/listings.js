@@ -39,8 +39,8 @@ module.exports.createListing = async (req, res) => {
 
     if (req.file) {
         newListing.image = {
-            url: req.file.path,
-            filename: req.file.filename,
+            url: req.file.secure_url,
+            filename: req.file.public_id,
         };
     }
 
@@ -87,8 +87,8 @@ module.exports.updateListing = async (req, res) => {
 
     if (req.file) {
         listing.image = {
-            url: req.file.path,
-            filename: req.file.filename,
+            url: req.file.secure_url,
+            filename: req.file.public_id,
         };
         await listing.save();
     }

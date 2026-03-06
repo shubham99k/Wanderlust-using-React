@@ -13,7 +13,6 @@ export default function Navbar({ onNavigate }) {
 
   const handleLogout = () => {
     logout();
-    showFlash("Logged out. See you soon!");
     go("home");
   };
 
