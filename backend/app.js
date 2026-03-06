@@ -18,10 +18,16 @@ const localStrategy = require("passport-local");
 const ExpressError = require("./utils/ExpressError.js");
 
 const cors = require("cors");
+
 const allowedOrigins = process.env.FRONTEND_URL
     ? [process.env.FRONTEND_URL, "http://localhost:5173"]
     : ["http://localhost:5173"];
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true
+}));
+
 app.use(express.json());
 
 
