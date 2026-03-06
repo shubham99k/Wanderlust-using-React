@@ -82,7 +82,7 @@ const sessionOptions = {
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        sameSite: "lax",
     }
 }
 
@@ -106,15 +106,20 @@ app.use((req, res, next) => {
 // ROUTES
 app.get("/me", (req, res) => res.json(req.user || null));
 
-app.get("/", (req, res) => {
-    res.redirect("/listings");
-});
+// In production, "/" is handled by the React SPA catch-all
+if (process.env.NODE_ENV !== "production") {
+    app.get("/", (req, res) => {
+        res.redirect("/listings");
+    });
+}
 
-app.get("/privacy", (req, res) => {
+app.get("/privacy", (req, res, next) => {
+    if (process.env.NODE_ENV === "production") return next();
     res.render("privacy.ejs");
 });
 
-app.get("/terms", (req, res) => {
+app.get("/terms", (req, res, next) => {
+    if (process.env.NODE_ENV === "production") return next();
     res.render("terms.ejs");
 });
 
@@ -122,6 +127,19 @@ app.get("/terms", (req, res) => {
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
+
+
+// Serve React frontend in production (same-origin = no cookie issues)
+if (process.env.NODE_ENV === "production") {
+    const frontendDist = path.join(__dirname, "../frontend/dist");
+    app.use(express.static(frontendDist));
+    app.use((req, res, next) => {
+        if (req.method === "GET" && req.accepts("html")) {
+            return res.sendFile(path.join(frontendDist, "index.html"));
+        }
+        next();
+    });
+}
 
 
 // ERROR HANDLER
