@@ -252,16 +252,20 @@ export default function ListingShow({ listingId, onNavigate }) {
           <div className="show-page__owner-avatar">
             {ini(listing.owner.username)}
           </div>
-          <div>
-            <div className="show-page__owner-label">Hosted by:</div>
-            <div className="show-page__owner-name">
-              @{listing.owner.username}
+          <div className="show-page__owner-details">
+            <div className="show-page__owner-info">
+              <div className="show-page__owner-label">Hosted by</div>
+              <div className="show-page__owner-name">
+                @{listing.owner.username}
+              </div>
             </div>
-          </div>
-          <br />
-          <div>
-            <div className="show-page__owner-label">Contact Email:</div>
-            <div className="show-page__owner-name">{listing.owner.email}</div>
+            <div className="show-page__owner-divider" />
+            <div className="show-page__owner-info">
+              <div className="show-page__owner-label">Contact Email</div>
+              <div className="show-page__owner-email">
+                {listing.owner.email}
+              </div>
+            </div>
           </div>
         </div>
       )}
