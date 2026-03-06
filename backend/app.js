@@ -18,7 +18,10 @@ const localStrategy = require("passport-local");
 const ExpressError = require("./utils/ExpressError.js");
 
 const cors = require("cors");
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+const allowedOrigins = process.env.FRONTEND_URL
+    ? [process.env.FRONTEND_URL, "http://localhost:5173"]
+    : ["http://localhost:5173"];
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(express.json());
 
 
@@ -61,15 +64,19 @@ store.on("error", (err) => {
 });
 
 
+app.set("trust proxy", 1);
+
 const sessionOptions = {
     store,
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     }
 }
 
