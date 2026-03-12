@@ -1,0 +1,59 @@
+/* ── Cold-start screen (full-page loader in AppContext) ── */
+.cold-start-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.cold-start-screen__text {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ── Shared banner (used in both full-page & listing loading) ── */
+.cold-start-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  max-width: 440px;
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: 10px;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: #6d5c00;
+  text-align: left;
+}
+
+.cold-start-banner__icon {
+  flex-shrink: 0;
+  font-size: 1.15rem;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.cold-start-banner p {
+  margin: 0;
+}
+
+/* ── Fade-in animation ── */
+.anim-fade-in {
+  animation: coldFadeIn 0.5s ease both;
+}
+
+@keyframes coldFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

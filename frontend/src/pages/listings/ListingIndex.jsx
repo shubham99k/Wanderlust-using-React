@@ -3,12 +3,20 @@ import { useApp } from "../../context/AppContext";
 import { api } from "../../utils/api";
 import ListingCard from "../../components/includes/ListingCard";
 import "./ListingIndex.css";
+import "../../context/ColdStartBanner.css";
 
 export default function ListingIndex({ onNavigate, onSelectListing }) {
   const { currentUser } = useApp();
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [showColdMsg, setShowColdMsg] = useState(false);
+
+  useEffect(() => {
+    if (!loading) return;
+    const t = setTimeout(() => setShowColdMsg(true), 5000);
+    return () => clearTimeout(t);
+  }, [loading]);
 
   useEffect(() => {
     api
@@ -107,6 +115,19 @@ export default function ListingIndex({ onNavigate, onSelectListing }) {
             <div className="loading-wrap">
               <div className="spinner" />
               <span>Loading listings…</span>
+              {showColdMsg && (
+                <div
+                  className="cold-start-banner anim-fade-in"
+                  style={{ marginTop: "1rem" }}
+                >
+                  <span className="cold-start-banner__icon">ℹ️</span>
+                  <p>
+                    Our backend is hosted on Render's free tier and sleeps after
+                    inactivity. It's waking up now — this may take
+                    <strong> 40–60 seconds</strong>. Thanks for your patience!
+                  </p>
+                </div>
+              )}
             </div>
           ) : filtered.length === 0 ? (
             <div className="empty-state">
