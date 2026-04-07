@@ -19,14 +19,45 @@ const ExpressError = require("./utils/ExpressError.js");
 
 const cors = require("cors");
 
-const allowedOrigins = process.env.FRONTEND_URL
-    ? [process.env.FRONTEND_URL, "http://localhost:5173"]
-    : ["http://localhost:5173"];
+const normalizeOrigin = (origin) => {
+    if (!origin) return "";
+    try {
+        return new URL(origin).origin;
+    } catch {
+        return String(origin).trim().replace(/\/+$/, "");
+    }
+};
 
-app.use(cors({
-    origin: allowedOrigins,
-    credentials: true
-}));
+const configuredOrigins = [
+    process.env.FRONTEND_URL,
+    process.env.FRONTEND_URLS,
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+].filter(Boolean)
+    .flatMap((value) => value.split(","))
+    .map((value) => normalizeOrigin(value.trim()))
+    .filter(Boolean);
+
+const allowedOrigins = new Set(configuredOrigins);
+
+const corsOptions = {
+    origin: (origin, callback) => {
+        // Allow non-browser calls (curl, server-to-server, health checks).
+        if (!origin) return callback(null, true);
+
+        const normalized = normalizeOrigin(origin);
+        if (allowedOrigins.has(normalized)) {
+            return callback(null, true);
+        }
+
+        return callback(new Error(`CORS blocked for origin: ${origin}`));
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
